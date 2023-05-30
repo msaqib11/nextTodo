@@ -36,22 +36,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## API Endpoints
 -------------
 
-- **GET /api/tasks**
+- **GET /api/todo**
 
-  Retrieves all tasks from the database.
+  Retrieves all Todo from the database.
 
-- **POST /api/tasks**
+- **POST /api/todo**
 
-  Creates a new task.
+  Creates a new Todo.
   
   Request body should be a JSON object with the following properties:
   
   - `title` (string, required): The title of the task.
   - `status` (boolean, optional): The status of the task (defaults to true if not provided).
 
-- **DELETE /api/tasks?taskId=<taskId>**
+- **DELETE /api/todo?taskId=<taskId>**
 
-  Deletes a task with the specified taskId.
+  Deletes a Todo with the specified taskId.
   
   The taskId query parameter is required and should be a valid task ID.
 

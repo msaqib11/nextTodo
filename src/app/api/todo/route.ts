@@ -72,3 +72,19 @@ export async function DELETE(request: NextRequest) {
     });
   }
 }
+
+// export async function PATCH(request: NextRequest){
+//   const req = await request.json()
+//   try {
+//     const updateTodo = await db.update(todoTable)
+//     .set({status:req.status })
+//     .where(eq(todoTable.id, req.id))  
+//     .returning({ status:todoTable.status
+//               })
+//     return NextResponse.json({ message: `Status of task ${req.id} Updated successfully` });
+//     } catch (error) {
+//       const err = (error as { message: string }).message;
+//       console.log(error);
+//       return NextResponse.json({ message: err });
+//     }
+// }
