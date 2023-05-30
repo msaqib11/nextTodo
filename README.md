@@ -32,3 +32,40 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## API Endpoints
+-------------
+
+- **GET /api/tasks**
+
+  Retrieves all tasks from the database.
+
+- **POST /api/tasks**
+
+  Creates a new task.
+  
+  Request body should be a JSON object with the following properties:
+  
+  - `title` (string, required): The title of the task.
+  - `status` (boolean, optional): The status of the task (defaults to true if not provided).
+
+- **DELETE /api/tasks?taskId=<taskId>**
+
+  Deletes a task with the specified taskId.
+  
+  The taskId query parameter is required and should be a valid task ID.
+
+## Error Handling
+--------------
+
+In case of any errors during API operations, appropriate error messages will be returned as JSON responses.
+
+## Contributing
+------------
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please submit a pull request.
+
+## License
+-------
+
+This project is licensed under the MIT License.
