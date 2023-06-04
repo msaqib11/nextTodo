@@ -59,9 +59,9 @@ export async function DELETE(request: NextRequest) {
       const deleteTask = await db
         .delete(todoTable) // Deleting from the todoTable
         .where(eq(todoTable.id, parseInt(taskId))) // Setting the condition for deletion based on taskId
-        .returning(); // Returning the deleted task (optional)
+        .returning({todoName : todoTable.task});// Returning the deleted task (optional)
         
-      return NextResponse.json({ message: "Task deleted" }); // Returning a JSON response indicating successful deletion
+      return NextResponse.json({ message: `${todoTable.task} has been deleted`}); // Returning a JSON response indicating successful deletion
     } else {
       throw new Error("Task ID is required"); // Throwing an error if taskId is not provided
     }
