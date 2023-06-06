@@ -4,7 +4,7 @@ import { AiFillDelete } from "react-icons/ai";
 
 const getData = async () => {
   try {
-    const res = await fetch("http://127.0.0.1:3000/api/todo", {
+    const res = await fetch("api/todo", {
       method: "GET",
       headers: {
         "content-type": "application/json",
