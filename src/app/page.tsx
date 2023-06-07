@@ -1,3 +1,4 @@
+import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
           {/* @ts-ignore */}
           <TodoList />
         </div>
+        {/* @ts-ignore */}
+        <AddTodo/>
         <div className="w-1/2 mx-auto h-[4px] bg-slate-600 rounded"></div>
       </div>
     </main>

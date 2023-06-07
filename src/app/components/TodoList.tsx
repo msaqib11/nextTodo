@@ -4,13 +4,11 @@ import { AiFillDelete } from "react-icons/ai";
 
 const getData = async () => {
   try {
-    const res = await fetch("/api/todo", {
+    const res = await fetch("http://127.0.0.1:3000/api/todo", {
       method: "GET",
+      cache : "no-store",
       headers: {
         "content-type": "application/json",
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
-        Expires: "0",
       },
     });
     if (!res.ok) {
