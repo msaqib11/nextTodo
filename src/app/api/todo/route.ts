@@ -12,12 +12,22 @@ export async function GET(request: NextRequest) {
         )
       `; // Creating a table named 'tasks' with columns 'id', 'title', and 'status' if it does not exist already
 
-    const allTasks = await db.select().from(todoTable); // Retrieving all tasks from the 'todoTable' using the 'select' method
+      const allCompletedTasks = await db
+      .select()
+      .from(todoTable)
+      .where(eq(todoTable.status, false)); // Retrieve tasks with status set to true
+
+    const allIncompleteTasks = await db
+      .select()
+      .from(todoTable)
+      .where(eq(todoTable.status, true)); 
 
     // console.log(allTasks.find((item)=> item.id===1));
-    console.log(allTasks); // Logging all the retrieved tasks to the console
-
-    return NextResponse.json({ allTodos: allTasks }); // Returning a JSON response containing all the tasks
+   
+    return NextResponse.json({
+      completedTasks: allCompletedTasks,
+      incompleteTasks: allIncompleteTasks,
+    }); // Returning a JSON response containing all the tasks
   } catch (error) {
     console.log((error as { message: string }).message); // Logging the error message to the console
     return NextResponse.json({ message: "Something went wrong" }); // Returning a JSON response indicating an error occurred
@@ -73,18 +83,18 @@ export async function DELETE(request: NextRequest) {
   }
 }
 
-// export async function PATCH(request: NextRequest){
-//   const req = await request.json()
-//   try {
-//     const updateTodo = await db.update(todoTable)
-//     .set({status:req.status })
-//     .where(eq(todoTable.id, req.id))  
-//     .returning({ status:todoTable.status
-//               })
-//     return NextResponse.json({ message: `Status of task ${req.id} Updated successfully` });
-//     } catch (error) {
-//       const err = (error as { message: string }).message;
-//       console.log(error);
-//       return NextResponse.json({ message: err });
-//     }
-// }
+export async function PATCH(request: NextRequest){
+  const req = await request.json()
+  try {
+    const updateTodo = await db.update(todoTable)
+    .set({status:req.status })
+    .where(eq(todoTable.id, req.id))  
+    .returning({ status:todoTable.status
+              })
+    return NextResponse.json({ message: `Status of task ${req.id} Updated successfully` });
+    } catch (error) {
+      const err = (error as { message: string }).message;
+      console.log(error);
+      return NextResponse.json({ message: err });
+    }
+}

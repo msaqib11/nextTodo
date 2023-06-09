@@ -29,7 +29,8 @@ const AddTodo = () => {
       <form className="w-full flex mt-4 mb-4 items-center gap-x-2">
         <input
           type="text"
-          className="w-full px-3 py-3 border border-red-300 rounded-full"
+          className="w-full px-4 py-3 border border-primary rounded-full"
+          placeholder="Add New Todo"
           onChange={(e) => setTask({ task: e.target.value })}
           required
         />

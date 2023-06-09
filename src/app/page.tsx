@@ -11,7 +11,7 @@ export default function Home() {
   const formattedDate = `${month} ${day}, ${year}`;
   return (
     <main className="bg-gradient-to-tr from-primary to-secondary h-screen flex justify-center items-center">
-      <div className="px-6 py-3 bg-white w-full max-w-sm rounded-lg ">
+      <div className="px-6 py-3 bg-white/[0.7] w-full max-w-sm rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold">{formattedDate}</h1>
         <div className="flex items-center gap-2 text-slate-600 font-semibold text-sm mb-2">
           <p> 5 completed,</p>
